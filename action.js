@@ -1,4 +1,9 @@
-import * as types from '../types'
+import * as types from './types.js'
+//import {LOGIN_REQUEST} from './types.js'
+
+function action(type, payload = {}) {
+  return {type, ...payload}
+}
 
 export const login = {
   request: (login) => action(types.LOGIN_REQUEST, {login}),
@@ -11,4 +16,3 @@ export const logout = {
   success: (login, response) => action(types.LOGOUT_SUCCESS, {login, response}),
   failure: (login, error) => action(types.LOGOUT_FAILURE, {login, error}),
 }
-
